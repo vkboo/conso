@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Console Loader</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0d1117;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c9d1d9;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      color: #58a6ff;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+    .status {
+      font-size: 0.875rem;
+      color: #8b949e;
+      margin-bottom: 1rem;
+    }
+    .libs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .lib-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .lib-item.loading { color: #f0883e; }
+    .lib-item.loaded { color: #3fb950; }
+    .lib-item.error { color: #f85149; }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .help {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #484f58;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+    .help code {
+      background: #161b22;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #58a6ff;
+    }
+    .prompt {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #161b22;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      font-size: 0.8rem;
+      color: #7ee787;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">&gt;_ CONSOLE</div>
+    <div class="status" id="status">Parsing parameters...</div>
+    <div class="libs" id="libs"></div>
+    <div class="prompt" id="prompt" style="display:none">
+      Press F12 to open DevTools → Console
+    </div>
+    <div class="help" id="help" style="display:none">
+      <p>Usage:</p>
+      <p><code>?moment</code> load latest</p>
+      <p><code>?moment=2.30.1</code> specific version</p>
+      <p><code>?moment&lodash</code> multiple packages</p>
+    </div>
+  </div>
+  <script src="loader.js"></script>
+</body>
+</html>
+
