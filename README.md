@@ -1,4 +1,4 @@
-# Console Loader
+# Conso
 
 A minimal frontend service that loads npm packages into browser console via URL parameters for quick debugging.
 
